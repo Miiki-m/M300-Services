@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+config.vm.box = "debian/buster64"
+config.vm.provider "virtualbox" do |vb|
+end
+config.vm.provision "shell", inline: <<-SHELL
+sudo apt-get install apache2 -y
+sudo apt-get install libapache2-mod-proxy-html -y
+sudo apt-get install libxml2-dev -y
+sudo a2enmod proxy
+sudo a2enmod proxy_html
+sudo a2enmod proxy_http
+sudo systemctl restart apache2
+sudo echo "ServerName localhost" >> /etc/apache2/apache2.conf
+sudo systemctl restart apache2
+sudo touch /etc/apache2/sites-enabled/001-reverseproxy.conf
+sudo echo "ProxyRequests Off
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+    ProxyPass /master http://master
+    ProxyPassReverse /master http://master" >> /etc/apache2/sites-enabled/001-reverseproxy.conf
+SHELL
+end
