@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+config.vm.box = "debian/buster64"
+config.vm.provider "virtualbox" do |vb|
+end
+config.vm.provision "shell", inline: <<-SHELL
+sudo useradd Miki
+sudo groupadd test-grp
+sudo usermod -aG test-grp Miki
+sudo touch test.txt
+sudo chmod 774 test.txt
+sudo chown Miki test.txt
+sudo chgrp informatik test.txt
+SHELL
+end
