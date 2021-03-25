@@ -11,14 +11,10 @@ Das ist die Dokumentation für die Leistungsbeurteilung im Modul 300, hier wird 
 - [Lernumgebung](#Lernumgebung)
 - [Eigene VM](#Eigene VM)
 - [Persönlicher Wissensstand](#Persönlicher Wissensstand)
-- [Lists](#lists)
-- [Links](#links)
-- [Images](#images)
-- [Code](#code)
-- [Tables](#tables)
-- [Custom HTML](#custom-html)
-- [Custom CSS](#custom-css)
-- [Additional Resources](#additional-resources)
+- [Vagrant](#Vagrant)
+- [Die VMs](#Die VMs)
+- [Wissenszuwachs V2](#Wissenszuwachs V2)
+- [Reflexion](#Reflexion)
 
 ---
 
