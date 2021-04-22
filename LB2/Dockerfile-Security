@@ -1,0 +1,15 @@
+#Test Use
+
+FROM ubuntu:14.04
+MAINTAINER Maybe Miki
+
+RUN apt-get update
+
+
+RUN groupadd -r user_grp && useradd -r -g user_grp Miki
+USER Miki
+
+EXPOSE 591
+
+VOLUME /var/www/html
+
